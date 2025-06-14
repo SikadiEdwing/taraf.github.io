@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", () => {
     <nav class="navbar navbar-expand-lg bg-white navbar-light shadow sticky-top p-0">
       <a href="index.html" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
         <h3 class="m-0 text-primary">
-          <img src="img2/44.jpg" class="me-3" style="height: 2.5em;">Taraf Education
+          <img src="img2/45.png" class="me-3" style="height: 2.5em;">Taraf Education
         </h3>
       </a>
       <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
