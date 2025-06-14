@@ -432,3 +432,17 @@
     padding-right: 0;
     border-right: none;
 }
+
+/* Pour les téléphones en mode paysage */
+@media screen and (max-width: 991px) and (orientation: landscape) {
+  .landscape-show {
+    display: inline-block !important;
+  }
+}
+
+/* Pour masquer sur téléphone portrait */
+@media screen and (max-width: 767px) and (orientation: portrait) {
+  .landscape-show {
+    display: none !important;
+  }
+}
