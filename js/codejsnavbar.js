@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const navbarHTML = `
     <nav class="navbar navbar-expand-lg bg-white navbar-light shadow sticky-top p-0">
   <a href="index.html" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
-   <img src="img2/45.png" class="me-3" style="height: 2.5em;">
+   <img src="img2/45.png" class="me-3" style="height: 4em;">
     <h3 class="m-0 text-primary d-none d-lg-inline">
      Taraf Education
     </h3>
@@ -131,4 +131,45 @@ document.addEventListener("DOMContentLoaded", () => {
   } else {
     console.error("Pas de <div id='navbar'> trouvé dans le DOM.");
   }
+});
+
+
+// Attendre que le DOM soit chargé
+document.addEventListener('DOMContentLoaded', function() {
+    // Sélectionner le formulaire
+    const form = document.getElementById('contactForm');
+    
+    if (form) {
+        // Écouter l'événement submit
+        form.addEventListener('submit', function(event) {
+            // Empêcher l'envoi si invalide
+            if (!form.checkValidity()) {
+                event.preventDefault();
+                event.stopPropagation();
+            }
+
+            // Ajouter la classe de validation
+            form.classList.add('was-validated');
+            
+            // Optionnel: Envoi personnalisé si valide
+            if (form.checkValidity()) {
+                // Ici vous pourriez ajouter un loader ou autre logique
+                console.log('Formulaire valide, envoi en cours...');
+            }
+        }, false);
+
+        // Validation en temps réel (optionnel)
+        const inputs = form.querySelectorAll('input, textarea, select');
+        inputs.forEach(input => {
+            input.addEventListener('input', function() {
+                if (input.checkValidity()) {
+                    input.classList.remove('is-invalid');
+                    input.classList.add('is-valid');
+                } else {
+                    input.classList.remove('is-valid');
+                    input.classList.add('is-invalid');
+                }
+            });
+        });
+    }
 });
