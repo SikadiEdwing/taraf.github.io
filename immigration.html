@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8">
     <title>Taraf Education</title>
@@ -13,7 +14,9 @@
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600&family=Nunito:wght@600;700;800&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600&family=Nunito:wght@600;700;800&display=swap"
+        rel="stylesheet">
 
     <!-- Icon Font Stylesheet -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
@@ -30,11 +33,20 @@
     <link href="css/style.css" rel="stylesheet">
 
     <script src="js/codejsnavbar.js" defer></script>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Bootstrap JS (carousel nécessite JS) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
 </head>
+
 <body>
-    
+
     <!-- Spinner Start -->
-    <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+    <div id="spinner"
+        class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
         <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
             <span class="sr-only">Loading...</span>
         </div>
@@ -42,7 +54,72 @@
     <!-- Spinner End -->
 
     <!-- 1) PLACEHOLDER pour ta navbar -->
-        <div id="navbar"></div>
+    <div id="navbar"></div>
+
+    <div class="container my-5">
+        <div class="row align-items-center">
+            <!-- Texte à gauche -->
+            <div class="col-md-6">
+                <h1> ✨ Choose Smart Immigration with TARAF EJLS – Destination: Japan! </h1>
+                
+               <p> Dreaming of a better future, strong job prospects, and high-quality international training?
+                Japan is waiting — and TARAF EJLS is here to guide you every step of the way!</p>
+
+                <p>🔹 A trusted pathway to Japan
+                Through its 6-month intensive training program in Yaoundé (and online), TARAF EJLS prepares young people
+                to successfully transition into academic and professional life in Japan.</p>
+
+                <p>🔹 A real springboard for your future
+                With expert native Japanese language teachers, TARAF provides the foundation to pass the JLPT exam,
+                supports you in obtaining a work visa, and takes care of emergency procedures in Japan.</p>
+
+                <p>🔹 Real opportunities for your life
+                Whether you're a student, nurse, engineer, researcher, or simply looking for better prospects abroad,
+                TARAF EJLS gives you the training and support you need to succeed in Japan.</p>
+            </div>
+
+            <!-- Vidéos à droite (carousel) -->
+            <div class="col-md-6">
+                <div id="videoCarousel" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+
+                        <div class="carousel-item active">
+                            <video class="d-block w-100" controls>
+                                <source src="video/1.mp4" type="video/mp4">
+                                Votre navigateur ne supporte pas la lecture vidéo.
+                            </video>
+                        </div>
+
+                        <div class="carousel-item">
+                            <video class="d-block w-100" controls>
+                                <source src="video/2.mp4" type="video/mp4">
+                                Votre navigateur ne supporte pas la lecture vidéo.
+                            </video>
+
+                        </div>
+
+                        <div class="carousel-item">
+                            <video class="d-block w-100" controls>
+                                <source src="video/3.mp4" type="video/mp4">
+                                Votre navigateur ne supporte pas la lecture vidéo.
+                            </video>
+                        </div>
+
+                    </div>
+
+                    <!-- Contrôles -->
+                    <button class="carousel-control-prev" type="button" data-bs-target="#videoCarousel"
+                        data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon"></span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#videoCarousel"
+                        data-bs-slide="next">
+                        <span class="carousel-control-next-icon"></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- Footer Start -->
     <div class="container-fluid bg-dark text-light footer pt-5 mt-5 wow fadeIn" data-wow-delay="0.1s" id="footer">
@@ -64,4 +141,5 @@
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
 </body>
+
 </html>
