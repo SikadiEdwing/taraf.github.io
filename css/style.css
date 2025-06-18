@@ -451,3 +451,15 @@
     max-height: 400px;
     object-fit: cover;
   }
+
+  body {
+  text-align: justify;
+}
+ /*redimensionner la taille de l'image dans la page translation*/
+#imagetranslation img {
+  max-width: 100%;      /* Ne dépasse jamais la largeur du conteneur */
+  height: auto;         /* Garde les proportions d'origine */
+  max-height: 600px;    /* Ajuste cette valeur selon la taille souhaitée */
+  object-fit: cover;    /* Couvre toute la zone sans déformer l’image */
+  border-radius: 10px;  /* Optionnel : coins arrondis */
+}
