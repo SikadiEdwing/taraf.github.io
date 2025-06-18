@@ -11,49 +11,68 @@
 });*/
 // js/codejsnavbar.js
 document.addEventListener("DOMContentLoaded", () => {
-  // 1) Mets ton code HTML de navbar dans une template string
   const navbarHTML = `
     <nav class="navbar navbar-expand-lg bg-white navbar-light shadow sticky-top p-0">
-  <a href="index.html" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
-   <img src="img2/45.png" class="me-3" style="height: 4em;">
-    <h3 class="m-0 text-primary d-none d-md-inline landscape-show" >
-      Taraf Education
-    </h3>
-    <!--h3 class="m-0 text-primary d-md-none d-lg-none landscape-show">
-      Taraf Education
-    </h3-->
-  </a>
-  <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarCollapse">
-    <div class="navbar-nav ms-auto p-4 p-lg-0">
-      <a href="index.html" class="nav-item nav-link active">Home</a>
-      <a href="about.html" class="nav-item nav-link">About</a>
-      <div class="nav-item dropdown">
-        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
-        <div class="dropdown-menu fade-down m-0">
-          <a href="classes.html" class="dropdown-item">Classes</a>
-          <a href="immigration.html" class="dropdown-item">Immigration</a>
-          <a href="translation.html" class="dropdown-item">Translation</a>
+      <a href="index.html" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
+        <img src="img2/45.png" class="me-3" style="height: 4em;">
+        <h3 class="m-0 text-primary d-none d-md-inline landscape-show">
+          Taraf Education
+        </h3>
+      </a>
+      <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+        <div class="navbar-nav ms-auto p-4 p-lg-0">
+          <a href="index.html" class="nav-item nav-link" id="nav-home">Home</a>
+          <a href="about.html" class="nav-item nav-link" id="nav-about">About</a>
+          <div class="nav-item dropdown">
+            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
+            <div class="dropdown-menu fade-down m-0">
+              <a href="classes.html" class="dropdown-item" id="nav-classes">Classes</a>
+              <a href="immigration.html" class="dropdown-item" id="nav-immigration">Immigration</a>
+              <a href="translation.html" class="dropdown-item" id="nav-translation">Translation</a>
+            </div>
+          </div>
+          <a href="contact.html" class="nav-item nav-link" id="nav-contact">Contact</a>
         </div>
       </div>
-      <a href="contact.html" class="nav-item nav-link">Contact</a>
-    </div>
-  </div>
-</nav>
+    </nav>
   `;
 
-  // 2) Injecte-le dans le placeholder
   const container = document.getElementById("navbar");
   if (container) {
     container.innerHTML = navbarHTML;
-  } else {
-    console.error("Pas de <div id='navbar'> trouvé dans le DOM.");
+
+    // Gestion de l'état actif
+    const currentPage = window.location.pathname.split('/').pop();
+    const navLinks = {
+      'index.html': 'nav-home',
+      'about.html': 'nav-about',
+      'classes.html': 'nav-classes',
+      'immigration.html': 'nav-immigration',
+      'translation.html': 'nav-translation',
+      'contact.html': 'nav-contact'
+    };
+
+    if (navLinks[currentPage]) {
+      const activeLink = document.getElementById(navLinks[currentPage]);
+      if (activeLink) {
+        activeLink.classList.add('active');
+
+        // Pour les éléments dropdown
+        if (currentPage === 'classes.html' ||
+          currentPage === 'immigration.html' ||
+          currentPage === 'translation.html') {
+          document.querySelector('.dropdown-toggle').classList.add('active');
+        }
+      }
+    }
   }
 });
+
 document.addEventListener("DOMContentLoaded", () => {
-   const navbarHTML = `<div class="container py-5">
+  const navbarHTML = `<div class="container py-5">
             <div class="row g-5">
                 <div class="col-lg-2 col-md-6">
                     <h4 class="text-white mb-3">Quick Link</h4>
@@ -127,7 +146,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 </div>
             </div>
         </div>  `;
- // 2) Injecte-le dans le placeholder
+  // 2) Injecte-le dans le placeholder
   const container = document.getElementById("footer");
   if (container) {
     container.innerHTML = navbarHTML;
@@ -138,41 +157,41 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 // Attendre que le DOM soit chargé
-document.addEventListener('DOMContentLoaded', function() {
-    // Sélectionner le formulaire
-    const form = document.getElementById('contactForm');
-    
-    if (form) {
-        // Écouter l'événement submit
-        form.addEventListener('submit', function(event) {
-            // Empêcher l'envoi si invalide
-            if (!form.checkValidity()) {
-                event.preventDefault();
-                event.stopPropagation();
-            }
+document.addEventListener('DOMContentLoaded', function () {
+  // Sélectionner le formulaire
+  const form = document.getElementById('contactForm');
 
-            // Ajouter la classe de validation
-            form.classList.add('was-validated');
-            
-            // Optionnel: Envoi personnalisé si valide
-            if (form.checkValidity()) {
-                // Ici vous pourriez ajouter un loader ou autre logique
-                console.log('Formulaire valide, envoi en cours...');
-            }
-        }, false);
+  if (form) {
+    // Écouter l'événement submit
+    form.addEventListener('submit', function (event) {
+      // Empêcher l'envoi si invalide
+      if (!form.checkValidity()) {
+        event.preventDefault();
+        event.stopPropagation();
+      }
 
-        // Validation en temps réel (optionnel)
-        const inputs = form.querySelectorAll('input, textarea, select');
-        inputs.forEach(input => {
-            input.addEventListener('input', function() {
-                if (input.checkValidity()) {
-                    input.classList.remove('is-invalid');
-                    input.classList.add('is-valid');
-                } else {
-                    input.classList.remove('is-valid');
-                    input.classList.add('is-invalid');
-                }
-            });
-        });
-    }
+      // Ajouter la classe de validation
+      form.classList.add('was-validated');
+
+      // Optionnel: Envoi personnalisé si valide
+      if (form.checkValidity()) {
+        // Ici vous pourriez ajouter un loader ou autre logique
+        console.log('Formulaire valide, envoi en cours...');
+      }
+    }, false);
+
+    // Validation en temps réel (optionnel)
+    const inputs = form.querySelectorAll('input, textarea, select');
+    inputs.forEach(input => {
+      input.addEventListener('input', function () {
+        if (input.checkValidity()) {
+          input.classList.remove('is-invalid');
+          input.classList.add('is-valid');
+        } else {
+          input.classList.remove('is-valid');
+          input.classList.add('is-invalid');
+        }
+      });
+    });
+  }
 });
